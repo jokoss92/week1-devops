@@ -98,5 +98,4 @@ def test_add():
 </br>
 
 <!-- Pytest Coverage Comment:Begin -->
-
-<!-- Pytest Coverage Comment:End -->
+\n<!-- Pytest Coverage Comment:End -->
