@@ -29,9 +29,17 @@ jobs:
         run: |
           python -m pytest -v tests
   
-      - name: Pytest coverage comment
-        uses: MishaKav/pytest-coverage-comment@main
+      - name: Install pytest-cov
+        run: |
+          python -m pip install pytest-cov
+  
+      - name: Generate coverage report
+        run: |
+          python -m pytest --cov=calculator --cov-report=xml:cov.xml
+  
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v2
         with:
-          pytest-coverage-path: ./pytest-coverage.txt
-          junitxml-path: ./pytest.xml
+          name: coverage-report
+          path: cov.xml
 
